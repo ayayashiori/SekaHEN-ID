@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 20261010-sekahen-id-v4
+# rev 20261010-sekahen-id-v5
 
 CACHE:
 index.html
@@ -20,6 +20,13 @@ chibi-failed.png
 chibi-idle.png
 chibi-loading.png
 chibi-success.png
+fonts/Quicksand-Medium.ttf
+fonts/Quicksand-SemiBold.ttf
+fonts/Quicksand-Bold.ttf
+fonts/Poppins-Regular.ttf
+fonts/Poppins-Medium.ttf
+fonts/Poppins-SemiBold.ttf
+fonts/Poppins-Bold.ttf
 
 NETWORK:
 *
