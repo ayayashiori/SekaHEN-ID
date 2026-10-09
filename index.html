@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SekaHEN★</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Quicksand', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #d8b4fe 100%);
+    color: #2d2640;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    overflow-x: hidden;
+    user-select: none;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 40px rgba(116, 90, 138, 0.2);
+    border-radius: 36px;
+    width: 100%;
+    max-width: 750px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .brand-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-bottom: 2px solid rgba(216, 180, 254, 0.3);
+    padding-bottom: 16px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #4c1d95;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #7c3aed;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .chibi-floating-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+  }
+
+  #chibi-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(116, 90, 138, 0.25));
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(233, 213, 255, 0.8);
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 20px rgba(116, 90, 138, 0.08);
+  }
+
+  .status-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #9333ea;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  #state {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d2640;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  #det {
+    font-size: 15px;
+    color: #6b21a8;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  #cache {
+    font-size: 14px;
+    color: #059669;
+    font-weight: 600;
+    margin-top: 14px;
+  }
+
+  .footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #7c3aed;
+    padding-top: 12px;
+    border-top: 2px solid rgba(216, 180, 254, 0.3);
+    font-weight: 600;
+    gap: 12px;
+  }
+
+  .ok { color: #059669 !important; font-weight: 700; }
+  .bad { color: #e11d48 !important; font-weight: 700; }
+  .warn { color: #d97706 !important; font-weight: 700; }
+
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+
+    .glass-panel {
+      padding: 24px;
+      border-radius: 28px;
+    }
+
+    h1 { font-size: 30px; }
+
+    #chibi-img {
+      width: 170px;
+      height: 170px;
+    }
+
+    .footer-info {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style></head><body>
+  <div class="glass-panel"><div class="brand-header">
+  <h1>SekaHEN ID (っ˘ω˘ς)</h1>
+  <p class="subtitle">Teman terbaik konsolmu ♥</p>
+</div>
+
+<div class="stack-container">
+
+  <div class="chibi-floating-container">
+    <img
+      id="chibi-img"
+      src="chibi-idle.png"
+      alt="Chibi Seka-chan"
+    >
+  </div>
+
+  <div class="glass-card">
+    <div>
+      <div class="status-label">Status Seka-chan</div>
+      <div id="state">Siap untuk memulai! ♥</div>
+      <div id="det"></div>
+    </div>
+
+    <div id="cache">Siap digunakan secara offline & sudah tersimpan</div>
+  </div>
+
+</div>
+
+<div class="footer-info">
+  <span>Fork dari RAWGAME ♥ UI oleh ayayashiori</span>
+  <span>Dibuat dengan penuh cinta ♡</span>
+</div>
+
+  </div><script>
+  (function () {
+      var stateEl = document.getElementById("state");
+      var detEl = document.getElementById("det");
+      var imgEl = document.getElementById("chibi-img");
+
+      function setState(msg, cls) {
+          stateEl.textContent = msg;
+          stateEl.className = cls || "";
+      }
+
+      var params = new URLSearchParams(location.search);
+
+      var SUPPORTED = {
+          1302: 1,
+          1304: 1,
+          1350: 1,
+          1352: 1
+      };
+
+      var key = null;
+      var fwnum = null;
+
+      var m = /PlayStation\s+4[\/ ](\d+)\.(\d+)/.exec(navigator.userAgent);
+
+      if (m) {
+          var ms = parseInt(m[2], 16).toString(16);
+
+          if (ms.length < 2) ms = "0" + ms;
+
+          key = m[1] + "." + ms;
+          fwnum = parseInt(m[1], 10) * 100 + parseInt(ms, 10);
+      }
+
+      var forced = params.get("force") === "1";
+
+      var supported = forced ||
+          (fwnum !== null && SUPPORTED[fwnum] === 1);
+
+      detEl.innerHTML =
+          "Firmware <b>" + (key || "tidak diketahui") + "</b>" +
+          (supported
+              ? " &middot; <span class='ok'>didukung :3</span>"
+              : " &middot; <span class='bad'>tidak ditemukan dalam tabel kernel</span>");
+
+      var target = "jb.html" + location.search;
+
+      // Perangkat tidak didukung dan mode paksa tidak aktif.
+      if (!supported && !forced) {
+          setState(
+              "Seka-chan nggak tau harus ngapain, Device nya aneh... TwT",
+              "bad"
+          );
+
+          imgEl.src = "chibi-failed.png";
+          return;
+      }
+
+      // Lanjutkan ke halaman exploit.
+      setTimeout(function () {
+          setState("Memuat payload exploit... ➔", "warn");
+          imgEl.src = "chibi-loading.png";
+
+          setTimeout(function () {
+              location.replace(target);
+          }, 500);
+
+      }, 700);
+
+  })();
+</script></body>
+</html>
