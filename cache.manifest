@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 20261010-sekahen-id-v3
+# rev 20261010-sekahen-id-v4
 
 CACHE:
 index.html
@@ -13,6 +13,7 @@ rpc_worker.js
 goldhen.bin
 payload2.bin
 patches/1302.bin
+patches/1304.bin
 patches/1350.bin
 patches/1352.bin
 chibi-failed.png
@@ -22,7 +23,3 @@ chibi-success.png
 
 NETWORK:
 *
-
-FALLBACK:
-/index.html /index.html
-/jb.html /jb.html
