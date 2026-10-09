@@ -3,9 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SekaHEN★</title><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><style>
+<title>SekaHEN★</title>
+
+<style>
+  @font-face {
+    font-family: 'Quicksand';
+    src: url('fonts/Quicksand-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Quicksand';
+    src: url('fonts/Quicksand-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Quicksand';
+    src: url('fonts/Quicksand-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
   * { box-sizing: border-box; }
 
   body {
@@ -157,40 +201,42 @@
       text-align: center;
     }
   }
-</style></head><body>
-  <div class="glass-panel"><div class="brand-header">
-  <h1>SekaHEN ID (っ˘ω˘ς)</h1>
-  <p class="subtitle">Teman terbaik konsolmu ♥</p>
-</div>
-
-<div class="stack-container">
-
-  <div class="chibi-floating-container">
-    <img
-      id="chibi-img"
-      src="chibi-idle.png"
-      alt="Chibi Seka-chan"
-    >
-  </div>
-
-  <div class="glass-card">
-    <div>
-      <div class="status-label">Status Seka-chan</div>
-      <div id="state">Siap untuk memulai! ♥</div>
-      <div id="det"></div>
+</style>
+</head>
+<body>
+  <div class="glass-panel">
+    <div class="brand-header">
+      <h1>SekaHEN ID (っ˘ω˘ς)</h1>
+      <p class="subtitle">Teman terbaik konsolmu ♥</p>
     </div>
 
-    <div id="cache">Siap digunakan secara offline & sudah tersimpan</div>
+    <div class="stack-container">
+      <div class="chibi-floating-container">
+        <img
+          id="chibi-img"
+          src="chibi-idle.png"
+          alt="Chibi Seka-chan"
+        >
+      </div>
+
+      <div class="glass-card">
+        <div>
+          <div class="status-label">Status Seka-chan</div>
+          <div id="state">Siap untuk memulai! ♥</div>
+          <div id="det"></div>
+        </div>
+
+        <div id="cache">Siap digunakan secara offline & sudah tersimpan</div>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <span>Fork dari RAWGAME ♥ UI oleh ayayashiori</span>
+      <span>Dibuat dengan penuh cinta ♡</span>
+    </div>
   </div>
 
-</div>
-
-<div class="footer-info">
-  <span>Fork dari RAWGAME ♥ UI oleh ayayashiori</span>
-  <span>Dibuat dengan penuh cinta ♡</span>
-</div>
-
-  </div><script>
+<script>
   (function () {
       var stateEl = document.getElementById("state");
       var detEl = document.getElementById("det");
@@ -237,7 +283,6 @@
 
       var target = "jb.html" + location.search;
 
-      // Perangkat tidak didukung dan mode paksa tidak aktif.
       if (!supported && !forced) {
           setState(
               "Seka-chan nggak tau harus ngapain, Device nya aneh... TwT",
@@ -248,7 +293,6 @@
           return;
       }
 
-      // Lanjutkan ke halaman exploit.
       setTimeout(function () {
           setState("Memuat payload exploit... ➔", "warn");
           imgEl.src = "chibi-loading.png";
@@ -260,5 +304,6 @@
       }, 700);
 
   })();
-</script></body>
+</script>
+</body>
 </html>
